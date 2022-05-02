@@ -1,0 +1,16 @@
+### docker-compose versions
+version: '3'
+
+services:
+  myPostgres:
+    image: 'postgres'
+    deploy:
+      mode: global
+    environment:
+      - POSTGRES_USER=postgresUser
+      - POSTGRES_PASSWORD=postgresPW
+      - POSTGRES_DB=postgresDB
+    ports:
+      - "5455:5432"
+    volumes:
+      - "$HOME/docker-db-volume:/var/lib/postgresql/data"
